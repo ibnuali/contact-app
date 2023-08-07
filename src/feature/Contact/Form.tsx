@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { Label, TextInput, Button } from "flowbite-react";
 import {
   useAddContactMutation,
@@ -6,6 +6,8 @@ import {
 } from "../../api/contactSlice";
 import { FormProps } from "./types";
 import { setContactForm } from "../../reducers/contactForm";
+import { useDispatch } from "react-redux";
+import { setSnackbar } from "../../reducers/snackbar";
 
 function Form({ dataForm, setShowModal, dispatchDataForm }: FormProps) {
   const [
@@ -19,6 +21,36 @@ function Form({ dataForm, setShowModal, dispatchDataForm }: FormProps) {
   ] = useUpdateContactMutation();
 
   const isEdit = !!dataForm.id;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (createSuccess || updateSuccess) {
+      dispatch(
+        setSnackbar({
+          open: true,
+          alertColor: "success",
+          message: isEdit
+            ? "Contact updated successfully"
+            : "Contact added successfully",
+        })
+      );
+      setShowModal(false);
+    }
+  }, [createSuccess, updateSuccess, isEdit]);
+
+  useEffect(() => {
+    if (createError || updateError) {
+      dispatch(
+        setSnackbar({
+          open: true,
+          alertColor: "failure",
+          message: isEdit
+            ? "Failed to update contact"
+            : "Failed to create contact",
+        })
+      );
+    }
+  }, [updateError, createError, isEdit]);
 
   const handleSubmit = () => {
     if (isEdit) {

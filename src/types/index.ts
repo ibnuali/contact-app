@@ -12,3 +12,9 @@ export interface IContactData {
   message?: string;
   data: IContact[];
 }
+
+export interface Snackbar {
+  open: boolean;
+  alertColor: AlertColorProps;
+  message: string;
+}

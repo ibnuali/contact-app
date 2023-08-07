@@ -34,7 +34,7 @@ const GridItems = ({
               <Button
                 id="edit"
                 color="light"
-                onClick={(e: any) => {
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   setShowModal(true);
                   dispatchDataForm(setContactForm(item));
                 }}
