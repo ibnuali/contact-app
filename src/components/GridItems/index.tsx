@@ -3,8 +3,13 @@ import { Avatar, Card, Button } from "flowbite-react";
 import { BiTrash, BiEdit } from "react-icons/bi";
 import { GridItemsProps } from "../../feature/Contact/types";
 import "./grid-items.css";
+import { setContactForm } from "../../reducers/contactForm";
 
-const GridItems = ({ data }: GridItemsProps) => {
+const GridItems = ({
+  data,
+  setShowModal,
+  dispatchDataForm,
+}: GridItemsProps) => {
   return (
     <div className="grid__content">
       {data.map((item) => {
@@ -26,7 +31,14 @@ const GridItems = ({ data }: GridItemsProps) => {
               <Button id="delete" color="light">
                 <BiTrash size={20} />
               </Button>
-              <Button id="edit" color="light">
+              <Button
+                id="edit"
+                color="light"
+                onClick={(e: any) => {
+                  setShowModal(true);
+                  dispatchDataForm(setContactForm(item));
+                }}
+              >
                 <BiEdit size={20} />
               </Button>
             </div>
