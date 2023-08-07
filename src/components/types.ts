@@ -10,5 +10,6 @@ export type ModalProps = {
 
   export type HeaderProps = {
     setShowModal: (value: boolean) => void;
+    setModalName: (value: string) => void;
     dispatchDataForm: (value: any) => void;
   };

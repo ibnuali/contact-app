@@ -2,13 +2,14 @@ import React from "react";
 import { Avatar, Card, Button } from "flowbite-react";
 import { BiTrash, BiEdit } from "react-icons/bi";
 import { GridItemsProps } from "../../feature/Contact/types";
-import "./grid-items.css";
 import { setContactForm } from "../../reducers/contactForm";
+import "./grid-items.css";
 
 const GridItems = ({
   data,
   setShowModal,
   dispatchDataForm,
+  setModalName,
 }: GridItemsProps) => {
   return (
     <div className="grid__content">
@@ -28,7 +29,14 @@ const GridItems = ({
               <p className="contact__subtitle">{`${item.age} years old`}</p>
             </div>
             <div className="grid__action">
-              <Button id="delete" color="light">
+              <Button
+                id="delete"
+                color="light"
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  setShowModal(true);
+                  setModalName(e.currentTarget.id);
+                }}
+              >
                 <BiTrash size={20} />
               </Button>
               <Button
@@ -36,6 +44,7 @@ const GridItems = ({
                 color="light"
                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   setShowModal(true);
+                  setModalName(e.currentTarget.id);
                   dispatchDataForm(setContactForm(item));
                 }}
               >
