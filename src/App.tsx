@@ -1,4 +1,3 @@
-import React from 'react'
 import Contact from './feature/Contact'
 
 function App() {

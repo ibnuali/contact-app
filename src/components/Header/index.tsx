@@ -15,6 +15,7 @@ const Header = (props: HeaderProps) => {
             color="info"
             id="create"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              props.setModalName(e.currentTarget.id);
               props.setShowModal(true);
               props.dispatchDataForm(resetContactForm());
             }}
