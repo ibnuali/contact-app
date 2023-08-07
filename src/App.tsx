@@ -1,9 +1,8 @@
 import React from 'react'
+import Contact from './feature/Contact'
 
 function App() {
-  return (
-    <div>App</div>
-  )
+  return (<Contact/>)
 }
 
 export default App
