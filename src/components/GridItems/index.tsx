@@ -30,6 +30,7 @@ const GridItems = ({
             </div>
             <div className="grid__action">
               <Button
+                data-testid="delete-button"
                 id="delete"
                 color="light"
                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
@@ -40,6 +41,7 @@ const GridItems = ({
                 <BiTrash size={20} />
               </Button>
               <Button
+                data-testid="edit-button"
                 id="edit"
                 color="light"
                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {

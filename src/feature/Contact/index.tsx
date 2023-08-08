@@ -1,4 +1,4 @@
-import { useState, useReducer, Suspense, useEffect } from "react";
+import { useState, useReducer, useEffect } from "react";
 import Header from "../../components/Header";
 import GridItems from "../../components/GridItems";
 import {
@@ -75,13 +75,11 @@ function Contact() {
         isLoading={isDeleting}
       >
         {showModal && modalName !== "delete" && (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Form
-              setShowModal={setShowModal}
-              dataForm={dataForm}
-              dispatchDataForm={dispatchDataForm}
-            />
-          </Suspense>
+          <Form
+            setShowModal={setShowModal}
+            dataForm={dataForm}
+            dispatchDataForm={dispatchDataForm}
+          />
         )}
       </Modal>
     </>

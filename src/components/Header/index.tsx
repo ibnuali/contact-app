@@ -12,6 +12,7 @@ const Header = (props: HeaderProps) => {
         <div className="header__title">Contact App</div>
         <div className="header__actions">
           <Button
+          data-testid="create-button"
             color="info"
             id="create"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
