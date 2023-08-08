@@ -67,7 +67,7 @@ function Form({ dataForm, setShowModal, dispatchDataForm }: FormProps) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-testid="form">
       <form
         autoComplete="off"
         className="flex max-w-md flex-col gap-4"
