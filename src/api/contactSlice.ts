@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const { fetch } = require("cross-fetch");
+import fetch from "cross-fetch";
+
 export const contactApi = createApi({
   reducerPath: "contactSlice",
   baseQuery: fetchBaseQuery({
