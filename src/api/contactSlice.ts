@@ -1,8 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
+const { fetch } = require("cross-fetch");
 export const contactApi = createApi({
   reducerPath: "contactSlice",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://contact.herokuapp.com" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://contact.herokuapp.com",
+    fetchFn: fetch,
+  }),
   tagTypes: ["Contact"],
   endpoints: (builder) => ({
     getContacts: builder.query({
